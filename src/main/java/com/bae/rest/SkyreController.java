@@ -21,8 +21,23 @@ public class SkyreController {
 		this.skyreCoreService=skyreCoreService;
 	}
 	
-	@GetMapping("/{appender}")
+	@GetMapping("citizen/{appender}")
 	public ResponseEntity<String> getCitizen(@PathVariable("appender") String appender){
+		return skyreCoreService.getCitizens(appender);
+	}
+	
+	@GetMapping("finance/{appender}")
+	public ResponseEntity<String> getFinance(@PathVariable("appender") String appender){
+		return skyreCoreService.getCitizens(appender);
+	}
+	
+	@GetMapping("mobile/{appender}")
+	public ResponseEntity<String> getMobile(@PathVariable("appender") String appender){
+		return skyreCoreService.getCitizens(appender);
+	}
+	
+	@GetMapping("anpr/{appender}")
+	public ResponseEntity<String> getANPR(@PathVariable("appender") String appender){
 		return skyreCoreService.getCitizens(appender);
 	}
 

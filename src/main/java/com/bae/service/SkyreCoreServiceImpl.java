@@ -34,6 +34,33 @@ public class SkyreCoreServiceImpl implements SkyreCoreService {
 		sendToQueue(newSearch);
 		return citizenList;
 	}
+
+	@Override
+	public ResponseEntity<String> getFinance(String appender) {
+		ResponseEntity<String> financeList = restTemplate.exchange("http://localhost:8083/Finance/getFinance?" + appender, HttpMethod.GET, null, String.class);
+		SearchInfo newSearch = new SearchInfo();
+		newSearch.setTime();
+		sendToQueue(newSearch);
+		return financeList;
+	}
+
+	@Override
+	public ResponseEntity<String> getMobile(String appender) {
+		ResponseEntity<String> mobileList = restTemplate.exchange("http://localhost:8084/Mobile/getMobile?" + appender, HttpMethod.GET, null, String.class);
+		SearchInfo newSearch = new SearchInfo();
+		newSearch.setTime();
+		sendToQueue(newSearch);
+		return null;
+	}
+
+	@Override
+	public ResponseEntity<String> getANPR(String appender) {
+		ResponseEntity<String> anprList = restTemplate.exchange("http://localhost:8082/ANPR/getANPR?" + appender, HttpMethod.GET, null, String.class);
+		SearchInfo newSearch = new SearchInfo();
+		newSearch.setTime();
+		sendToQueue(newSearch);
+		return anprList;
+	}
 	
     private void sendToQueue(SearchInfo searchinfo){
         SentInfo userToStore =  new SentInfo(searchinfo);
