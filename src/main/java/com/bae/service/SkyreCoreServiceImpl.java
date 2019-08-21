@@ -37,12 +37,15 @@ public class SkyreCoreServiceImpl implements SkyreCoreService {
 
 	@Override
 	public ResponseEntity<String> getFinance(String appender) {
-		ResponseEntity<String> financeList = restTemplate.exchange("http://localhost:8083/Finance/getFinance?" + appender, HttpMethod.GET, null, String.class);
+		ResponseEntity<String> financeList = restTemplate.exchange("http://localhost:8083/Finance/getFinance?forenames=jun", HttpMethod.GET, null, String.class);
 		SearchInfo newSearch = new SearchInfo();
 		newSearch.setTime();
 		sendToQueue(newSearch);
+		System.out.println(financeList.getBody());
 		return financeList;
 	}
+	
+
 
 	@Override
 	public ResponseEntity<String> getMobile(String appender) {
@@ -50,7 +53,8 @@ public class SkyreCoreServiceImpl implements SkyreCoreService {
 		SearchInfo newSearch = new SearchInfo();
 		newSearch.setTime();
 		sendToQueue(newSearch);
-		return null;
+		System.out.println(mobileList.getBody());
+		return mobileList;
 	}
 
 	@Override

@@ -28,17 +28,17 @@ public class SkyreController {
 	
 	@GetMapping("finance/{appender}")
 	public ResponseEntity<String> getFinance(@PathVariable("appender") String appender){
-		return skyreCoreService.getCitizens(appender);
+		return skyreCoreService.getFinance(appender);
 	}
 	
 	@GetMapping("mobile/{appender}")
 	public ResponseEntity<String> getMobile(@PathVariable("appender") String appender){
-		return skyreCoreService.getCitizens(appender);
+		return skyreCoreService.getMobile(appender);
 	}
 	
 	@GetMapping("anpr/{appender}")
 	public ResponseEntity<String> getANPR(@PathVariable("appender") String appender){
-		return skyreCoreService.getCitizens(appender);
+		return skyreCoreService.getANPR(appender);
 	}
 
 }
