@@ -40,5 +40,11 @@ public class SkyreController {
 	public ResponseEntity<String> getANPR(@PathVariable("appender") String appender){
 		return skyreCoreService.getANPR(appender);
 	}
+	
+	@GetMapping("associate/{appender}")
+	public ResponseEntity<String> getAssociate(@PathVariable("appender") String appender){
+		return skyreCoreService.getAssociates(appender);
+	}
+
 
 }

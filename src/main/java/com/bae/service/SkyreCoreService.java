@@ -12,6 +12,7 @@ public interface SkyreCoreService {
 	
 	public ResponseEntity<String> getANPR(String appender);
 	
+	public ResponseEntity<String> getAssociates(String appender);
 	
-
+	
 }
