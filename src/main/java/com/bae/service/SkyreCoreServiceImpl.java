@@ -85,13 +85,7 @@ public class SkyreCoreServiceImpl implements SkyreCoreService {
 		sendToQueue(newSearch);
 		return vehicleLocationList;
 	}
-
-	private void sendToQueue(SearchInfo searchinfo) {
-		SentInfo userToStore = new SentInfo(searchinfo);
-		System.out.println(searchinfo);
-		jmsTemplate.convertAndSend("AccountQueue", userToStore);
-	}
-
+	
 	@Override
 	public ResponseEntity<String> getTransactions(String appender) {
 		ResponseEntity<String> transactionList = restTemplate.exchange("http://localhost:8083/Finance/getTransactions?" + appender,
@@ -100,6 +94,22 @@ public class SkyreCoreServiceImpl implements SkyreCoreService {
 		newSearch.setTime();
 		sendToQueue(newSearch);
 		return transactionList;
+	}
+
+	@Override
+	public ResponseEntity<String> getCitizenFromRegistrationNo(String appender) {
+		ResponseEntity<String> citizenRegList = restTemplate.exchange("http://localhost:8082/ANPR/getCitizenFromRegistration?" + appender,
+				HttpMethod.GET, null, String.class);
+		SearchInfo newSearch = new SearchInfo();
+		newSearch.setTime();
+		sendToQueue(newSearch);
+		return citizenRegList;
+	}
+
+	private void sendToQueue(SearchInfo searchinfo) {
+		SentInfo userToStore = new SentInfo(searchinfo);
+		System.out.println(searchinfo);
+		jmsTemplate.convertAndSend("AccountQueue", userToStore);
 	}
 
 

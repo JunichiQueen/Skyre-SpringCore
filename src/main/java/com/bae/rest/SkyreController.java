@@ -55,6 +55,11 @@ public class SkyreController {
 	public ResponseEntity<String> getTransactions(@PathVariable("appender") String appender){
 		return skyreCoreService.getTransactions(appender);
 	}
+	
+	@GetMapping("citizenFromRegistration/{appender}")
+	public ResponseEntity<String> getCitizenFromRegistration(@PathVariable("appender") String appender){
+		return skyreCoreService.getCitizenFromRegistrationNo(appender);
+	}
 
 
 }
