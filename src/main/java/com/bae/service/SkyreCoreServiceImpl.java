@@ -19,6 +19,11 @@ public class SkyreCoreServiceImpl implements SkyreCoreService {
 	
 	private RestTemplate restTemplate;
 	
+	public static final String CITIZEN_URL = "http://localhost:8081";
+	public static final String FINANCE_URL = "http://localhost:8083";
+	public static final String MOBILE_URL = "http://localhost:8084";
+	public static final String VEHICLE_URL = "http://localhost:8082";
+	
 	@Autowired
 	public SkyreCoreServiceImpl (RestTemplate restTemplate, JmsTemplate jmsTemplate){
 		this.restTemplate=restTemplate;
@@ -28,7 +33,7 @@ public class SkyreCoreServiceImpl implements SkyreCoreService {
 	@Override
 	public ResponseEntity<String> getCitizens(String appender) {
 		
-		ResponseEntity<String> citizenList = restTemplate.exchange("http://localhost:8081/Citizen/getCitizens?" + appender, HttpMethod.GET, null, String.class);
+		ResponseEntity<String> citizenList = restTemplate.exchange(CITIZEN_URL + "/Citizen/getCitizens?" + appender, HttpMethod.GET, null, String.class);
 		SearchInfo newSearch = new SearchInfo();
 		newSearch.setTime();
 		sendToQueue(newSearch);
@@ -37,18 +42,16 @@ public class SkyreCoreServiceImpl implements SkyreCoreService {
 
 	@Override
 	public ResponseEntity<String> getFinance(String appender) {
-		ResponseEntity<String> financeList = restTemplate.exchange("http://localhost:8083/Finance/getFinance?" + appender, HttpMethod.GET, null, String.class);
+		ResponseEntity<String> financeList = restTemplate.exchange(FINANCE_URL + "/Finance/getFinance?" + appender, HttpMethod.GET, null, String.class);
 		SearchInfo newSearch = new SearchInfo();
 		newSearch.setTime();
 		sendToQueue(newSearch);
 		return financeList;
 	}
 	
-
-
 	@Override
 	public ResponseEntity<String> getMobile(String appender) {
-		ResponseEntity<String> mobileList = restTemplate.exchange("http://localhost:8084/Mobile/getMobile?" + appender, HttpMethod.GET, null, String.class);
+		ResponseEntity<String> mobileList = restTemplate.exchange(MOBILE_URL + "/Mobile/getMobile?" + appender, HttpMethod.GET, null, String.class);
 		SearchInfo newSearch = new SearchInfo();
 		newSearch.setTime();
 		sendToQueue(newSearch);
@@ -57,7 +60,7 @@ public class SkyreCoreServiceImpl implements SkyreCoreService {
 
 	@Override
 	public ResponseEntity<String> getANPR(String appender) {
-		ResponseEntity<String> anprList = restTemplate.exchange("http://localhost:8082/ANPR/getANPR?" + appender, HttpMethod.GET, null, String.class);
+		ResponseEntity<String> anprList = restTemplate.exchange(VEHICLE_URL+ "/ANPR/getANPR?" + appender, HttpMethod.GET, null, String.class);
 		SearchInfo newSearch = new SearchInfo();
 		newSearch.setTime();
 		sendToQueue(newSearch);
