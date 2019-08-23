@@ -92,5 +92,15 @@ public class SkyreCoreServiceImpl implements SkyreCoreService {
 		jmsTemplate.convertAndSend("AccountQueue", userToStore);
 	}
 
+	@Override
+	public ResponseEntity<String> getTransactions(String appender) {
+		ResponseEntity<String> transactionList = restTemplate.exchange("http://localhost:8083/Finance/getTransactions?" + appender,
+				HttpMethod.GET, null, String.class);
+		SearchInfo newSearch = new SearchInfo();
+		newSearch.setTime();
+		sendToQueue(newSearch);
+		return transactionList;
+	}
+
 
 }
