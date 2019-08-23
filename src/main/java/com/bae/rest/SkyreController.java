@@ -45,6 +45,11 @@ public class SkyreController {
 	public ResponseEntity<String> getAssociate(@PathVariable("appender") String appender){
 		return skyreCoreService.getAssociates(appender);
 	}
+	
+	@GetMapping("vehicleLocation/{appender}")
+	public ResponseEntity<String> getVehicleLocation(@PathVariable("appender") String appender){
+		return skyreCoreService.getVehicleLocation(appender);
+	}
 
 
 }

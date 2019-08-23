@@ -14,5 +14,5 @@ public interface SkyreCoreService {
 	
 	public ResponseEntity<String> getAssociates(String appender);
 	
-	
+	public ResponseEntity<String> getVehicleLocation(String appender);
 }

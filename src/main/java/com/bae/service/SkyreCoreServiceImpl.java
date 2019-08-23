@@ -75,11 +75,22 @@ public class SkyreCoreServiceImpl implements SkyreCoreService {
 		sendToQueue(newSearch);
 		return associateList;
 	}
+	
+	@Override
+	public ResponseEntity<String> getVehicleLocation(String appender) {
+		ResponseEntity<String> vehicleLocationList = restTemplate.exchange("http://localhost:8082/ANPR/getVehicleLocation?" + appender,
+				HttpMethod.GET, null, String.class);
+		SearchInfo newSearch = new SearchInfo();
+		newSearch.setTime();
+		sendToQueue(newSearch);
+		return vehicleLocationList;
+	}
 
 	private void sendToQueue(SearchInfo searchinfo) {
 		SentInfo userToStore = new SentInfo(searchinfo);
 		System.out.println(searchinfo);
 		jmsTemplate.convertAndSend("AccountQueue", userToStore);
 	}
+
 
 }
