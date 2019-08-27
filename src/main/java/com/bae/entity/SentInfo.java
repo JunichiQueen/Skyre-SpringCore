@@ -6,9 +6,12 @@ public class SentInfo {
 	
 	private String time;
 	
+	private String requestType;
+	
 	public SentInfo(SearchInfo searchinfo) {
 		this.name=searchinfo.getName();
 		this.time=searchinfo.getTime();
+		this.requestType=searchinfo.getRequestType();
 	}
 	
 	public SentInfo() {
@@ -29,6 +32,14 @@ public class SentInfo {
 
 	public void setTime(String time) {
 		this.time = time;
+	}
+
+	public String getRequestType() {
+		return requestType;
+	}
+
+	public void setRequestType(String requestType) {
+		this.requestType = requestType;
 	}
 
 }

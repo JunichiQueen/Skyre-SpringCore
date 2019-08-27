@@ -40,5 +40,26 @@ public class SkyreController {
 	public ResponseEntity<String> getANPR(@PathVariable("appender") String appender){
 		return skyreCoreService.getANPR(appender);
 	}
+	
+	@GetMapping("associate/{appender}")
+	public ResponseEntity<String> getAssociate(@PathVariable("appender") String appender){
+		return skyreCoreService.getAssociates(appender);
+	}
+	
+	@GetMapping("vehicleLocation/{appender}")
+	public ResponseEntity<String> getVehicleLocation(@PathVariable("appender") String appender){
+		return skyreCoreService.getVehicleLocation(appender);
+	}
+	
+	@GetMapping("transactions/{appender}")
+	public ResponseEntity<String> getTransactions(@PathVariable("appender") String appender){
+		return skyreCoreService.getTransactions(appender);
+	}
+	
+	@GetMapping("citizenFromRegistration/{appender}")
+	public ResponseEntity<String> getCitizenFromRegistration(@PathVariable("appender") String appender){
+		return skyreCoreService.getCitizenFromRegistrationNo(appender);
+	}
+
 
 }

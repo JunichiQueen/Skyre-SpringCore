@@ -12,6 +12,11 @@ public interface SkyreCoreService {
 	
 	public ResponseEntity<String> getANPR(String appender);
 	
+	public ResponseEntity<String> getAssociates(String appender);
 	
-
+	public ResponseEntity<String> getVehicleLocation(String appender);
+	
+	public ResponseEntity<String> getTransactions(String appender);
+	
+	public ResponseEntity<String> getCitizenFromRegistrationNo(String appender);
 }
