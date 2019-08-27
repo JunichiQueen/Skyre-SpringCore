@@ -74,8 +74,8 @@ public class SkyreCoreServiceImplTests {
 	
 	@Test
 	public void getANPRTest() {
-		String mobileList = "{ vehicleRegistrationNo: 213, make: Bugatti }";
-		ResponseEntity<String> response = new ResponseEntity<String>(mobileList, HttpStatus.OK);
+		String anprList = "{ vehicleRegistrationNo: 213, make: Bugatti }";
+		ResponseEntity<String> response = new ResponseEntity<String>(anprList, HttpStatus.OK);
 		doReturn(response)
 		.when(restTemplate).exchange("http://localhost:8082/ANPR/getANPR?" + MOCK_APPENDER, HttpMethod.GET, null, String.class);
 		doThrow(NullPointerException.class).when(jmsTemplate).convertAndSend(MOCK_CITIZEN);
