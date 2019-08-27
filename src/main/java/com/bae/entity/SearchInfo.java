@@ -10,10 +10,13 @@ public class SearchInfo {
 	
 	private String requestType;
 	
-	public SearchInfo(String name, String time, String requestType) {
+	private String username;
+	
+	public SearchInfo(String name, String time, String requestType, String username) {
 		this.name=name;
 		this.time=time;
 		this.requestType=requestType;
+		this.username=username;
 	}
 	
 	public SearchInfo() {
@@ -43,5 +46,13 @@ public class SearchInfo {
 	
 	public void setRequestType(String requestType) {
 		this.requestType = requestType;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 }

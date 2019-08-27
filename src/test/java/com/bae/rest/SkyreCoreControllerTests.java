@@ -30,8 +30,8 @@ public class SkyreCoreControllerTests {
 		String citizenList = "{ name: Bob, surname: Smith }";
 		ResponseEntity<String> response = new ResponseEntity<String>(citizenList, HttpStatus.OK);
 		doReturn(response)
-		.when(skyreCoreServiceImpl).getCitizens(MOCK_APPENDER);
-		ResponseEntity<String> something = skyreController.getCitizen(MOCK_APPENDER);
+		.when(skyreCoreServiceImpl).getCitizens(MOCK_APPENDER, "");
+		ResponseEntity<String> something = skyreController.getCitizen(MOCK_APPENDER,"");
 		assertEquals(response, something);
 	}
 	
@@ -40,8 +40,8 @@ public class SkyreCoreControllerTests {
 		String financeList = "{ accountName: BobAccount, bank: HSBC }";
 		ResponseEntity<String> response = new ResponseEntity<String>(financeList, HttpStatus.OK);
 		doReturn(response)
-		.when(skyreCoreServiceImpl).getFinance(MOCK_APPENDER);
-		ResponseEntity<String> something = skyreController.getFinance(MOCK_APPENDER);
+		.when(skyreCoreServiceImpl).getFinance(MOCK_APPENDER, "");
+		ResponseEntity<String> something = skyreController.getFinance(MOCK_APPENDER, "");
 		assertEquals(response, something);
 	}
 	
@@ -50,8 +50,8 @@ public class SkyreCoreControllerTests {
 		String mobileList = "{ phoneNumber: 01452865786, network: O2 }";
 		ResponseEntity<String> response = new ResponseEntity<String>(mobileList, HttpStatus.OK);
 		doReturn(response)
-		.when(skyreCoreServiceImpl).getMobile(MOCK_APPENDER);
-		ResponseEntity<String> something = skyreController.getMobile(MOCK_APPENDER);
+		.when(skyreCoreServiceImpl).getMobile(MOCK_APPENDER, "");
+		ResponseEntity<String> something = skyreController.getMobile(MOCK_APPENDER, "");
 		assertEquals(response, something);
 	}
 	
@@ -60,8 +60,8 @@ public class SkyreCoreControllerTests {
 		String anprList = "{ vehicleRegistrationNo: 213, make: Bugatti }";
 		ResponseEntity<String> response = new ResponseEntity<String>(anprList, HttpStatus.OK);
 		doReturn(response)
-		.when(skyreCoreServiceImpl).getANPR(MOCK_APPENDER);
-		ResponseEntity<String> something = skyreController.getANPR(MOCK_APPENDER);
+		.when(skyreCoreServiceImpl).getANPR(MOCK_APPENDER, "");
+		ResponseEntity<String> something = skyreController.getANPR(MOCK_APPENDER, "");
 		assertEquals(response, something);
 	}
 	
@@ -70,8 +70,8 @@ public class SkyreCoreControllerTests {
 		String associatesList = "{ name: Delvin, surname: Mallory }";
 		ResponseEntity<String> response = new ResponseEntity<String>(associatesList, HttpStatus.OK);
 		doReturn(response)
-		.when(skyreCoreServiceImpl).getAssociates(MOCK_APPENDER);
-		ResponseEntity<String> something = skyreController.getAssociate(MOCK_APPENDER);
+		.when(skyreCoreServiceImpl).getAssociates(MOCK_APPENDER, "");
+		ResponseEntity<String> something = skyreController.getAssociate(MOCK_APPENDER, "");
 		assertEquals(response, something);
 	}
 	
@@ -80,8 +80,8 @@ public class SkyreCoreControllerTests {
 		String vehicleLocationList = "{ latitude: 1863, longitude: 7853 }";
 		ResponseEntity<String> response = new ResponseEntity<String>(vehicleLocationList, HttpStatus.OK);
 		doReturn(response)
-		.when(skyreCoreServiceImpl).getVehicleLocation(MOCK_APPENDER);
-		ResponseEntity<String> something = skyreController.getVehicleLocation(MOCK_APPENDER);
+		.when(skyreCoreServiceImpl).getVehicleLocation(MOCK_APPENDER, "");
+		ResponseEntity<String> something = skyreController.getVehicleLocation(MOCK_APPENDER, "");
 		assertEquals(response, something);
 	}
 	
@@ -90,8 +90,8 @@ public class SkyreCoreControllerTests {
 		String transactionsList = "{ latitude: 1342, longitude: 7659 }";
 		ResponseEntity<String> response = new ResponseEntity<String>(transactionsList, HttpStatus.OK);
 		doReturn(response)
-		.when(skyreCoreServiceImpl).getTransactions(MOCK_APPENDER);
-		ResponseEntity<String> something = skyreController.getTransactions(MOCK_APPENDER);
+		.when(skyreCoreServiceImpl).getTransactions(MOCK_APPENDER, "");
+		ResponseEntity<String> something = skyreController.getTransactions(MOCK_APPENDER, "");
 		assertEquals(response, something);
 	}
 	
@@ -100,8 +100,8 @@ public class SkyreCoreControllerTests {
 		String citizenList = "{ name: Bob, surname: Smith }";
 		ResponseEntity<String> response = new ResponseEntity<String>(citizenList, HttpStatus.OK);
 		doReturn(response)
-		.when(skyreCoreServiceImpl).getCitizenFromRegistrationNo(MOCK_APPENDER);
-		ResponseEntity<String> something = skyreController.getCitizenFromRegistration(MOCK_APPENDER);
+		.when(skyreCoreServiceImpl).getCitizenFromRegistrationNo(MOCK_APPENDER, "");
+		ResponseEntity<String> something = skyreController.getCitizenFromRegistration(MOCK_APPENDER, "");
 		assertEquals(response, something);
 	}
 

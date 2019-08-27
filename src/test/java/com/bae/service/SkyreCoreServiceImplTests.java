@@ -46,7 +46,7 @@ public class SkyreCoreServiceImplTests {
 		doReturn(response)
 		.when(restTemplate).exchange("http://localhost:8081/Citizen/getCitizens?" + MOCK_APPENDER, HttpMethod.GET, null, String.class);
 		doThrow(NullPointerException.class).when(jmsTemplate).convertAndSend(MOCK_CITIZEN);
-		ResponseEntity<String> something = skyreCore.getCitizens(MOCK_APPENDER);
+		ResponseEntity<String> something = skyreCore.getCitizens(MOCK_APPENDER, "");
 		assertEquals(response, something);
 	}
 	
@@ -57,7 +57,7 @@ public class SkyreCoreServiceImplTests {
 		doReturn(response)
 		.when(restTemplate).exchange("http://localhost:8083/Finance/getFinance?" + MOCK_APPENDER, HttpMethod.GET, null, String.class);
 		doThrow(NullPointerException.class).when(jmsTemplate).convertAndSend(MOCK_CITIZEN);
-		ResponseEntity<String> something = skyreCore.getFinance(MOCK_APPENDER);
+		ResponseEntity<String> something = skyreCore.getFinance(MOCK_APPENDER, "");
 		assertEquals(response, something);
 	}
 	
@@ -68,7 +68,7 @@ public class SkyreCoreServiceImplTests {
 		doReturn(response)
 		.when(restTemplate).exchange("http://localhost:8084/Mobile/getMobile?" + MOCK_APPENDER, HttpMethod.GET, null, String.class);
 		doThrow(NullPointerException.class).when(jmsTemplate).convertAndSend(MOCK_CITIZEN);
-		ResponseEntity<String> something = skyreCore.getMobile(MOCK_APPENDER);
+		ResponseEntity<String> something = skyreCore.getMobile(MOCK_APPENDER, "");
 		assertEquals(response, something);
 	}
 	
@@ -79,7 +79,7 @@ public class SkyreCoreServiceImplTests {
 		doReturn(response)
 		.when(restTemplate).exchange("http://localhost:8082/ANPR/getANPR?" + MOCK_APPENDER, HttpMethod.GET, null, String.class);
 		doThrow(NullPointerException.class).when(jmsTemplate).convertAndSend(MOCK_CITIZEN);
-		ResponseEntity<String> something = skyreCore.getANPR(MOCK_APPENDER);
+		ResponseEntity<String> something = skyreCore.getANPR(MOCK_APPENDER, "");
 		assertEquals(response, something);
 	}
 	
@@ -90,7 +90,7 @@ public class SkyreCoreServiceImplTests {
 		doReturn(response)
 		.when(restTemplate).exchange("http://localhost:8084/Mobile/getAssociates?" + MOCK_APPENDER, HttpMethod.GET, null, String.class);
 		doThrow(NullPointerException.class).when(jmsTemplate).convertAndSend(MOCK_CITIZEN);
-		ResponseEntity<String> something = skyreCore.getAssociates(MOCK_APPENDER);
+		ResponseEntity<String> something = skyreCore.getAssociates(MOCK_APPENDER, "");
 		assertEquals(response, something);
 	}
 	
@@ -101,7 +101,7 @@ public class SkyreCoreServiceImplTests {
 		doReturn(response)
 		.when(restTemplate).exchange("http://localhost:8082/ANPR/getVehicleLocation?" + MOCK_APPENDER, HttpMethod.GET, null, String.class);
 		doThrow(NullPointerException.class).when(jmsTemplate).convertAndSend(MOCK_CITIZEN);
-		ResponseEntity<String> something = skyreCore.getVehicleLocation(MOCK_APPENDER);
+		ResponseEntity<String> something = skyreCore.getVehicleLocation(MOCK_APPENDER, "");
 		assertEquals(response, something);
 	}
 	
@@ -112,7 +112,7 @@ public class SkyreCoreServiceImplTests {
 		doReturn(response)
 		.when(restTemplate).exchange("http://localhost:8083/Finance/getTransactions?" + MOCK_APPENDER, HttpMethod.GET, null, String.class);
 		doThrow(NullPointerException.class).when(jmsTemplate).convertAndSend(MOCK_CITIZEN);
-		ResponseEntity<String> something = skyreCore.getTransactions(MOCK_APPENDER);
+		ResponseEntity<String> something = skyreCore.getTransactions(MOCK_APPENDER, "");
 		assertEquals(response, something);
 	}
 	
@@ -123,7 +123,7 @@ public class SkyreCoreServiceImplTests {
 		doReturn(response)
 		.when(restTemplate).exchange("http://localhost:8082/ANPR/getCitizenFromRegistration?" + MOCK_APPENDER, HttpMethod.GET, null, String.class);
 		doThrow(NullPointerException.class).when(jmsTemplate).convertAndSend(MOCK_CITIZEN);
-		ResponseEntity<String> something = skyreCore.getCitizenFromRegistrationNo(MOCK_APPENDER);
+		ResponseEntity<String> something = skyreCore.getCitizenFromRegistrationNo(MOCK_APPENDER, "");
 		assertEquals(response, something);
 	}
 
