@@ -8,9 +8,12 @@ public class SearchInfo {
 	
 	private String time;
 	
-	public SearchInfo(String name, String time) {
+	private String requestType;
+	
+	public SearchInfo(String name, String time, String requestType) {
 		this.name=name;
 		this.time=time;
+		this.requestType=requestType;
 	}
 	
 	public SearchInfo() {
@@ -32,5 +35,13 @@ public class SearchInfo {
 	public void setTime() {
 		String timeStamp = new SimpleDateFormat("yyyy.MM.dd:HH.mm.ss").format(new java.util.Date());
 		this.time = timeStamp;
+	}
+	
+	public String getRequestType() {
+		return requestType;
+	}
+	
+	public void setRequestType(String requestType) {
+		this.requestType = requestType;
 	}
 }

@@ -32,6 +32,7 @@ public class SkyreCoreServiceImpl implements SkyreCoreService {
 				.exchange("http://localhost:8081/Citizen/getCitizens?" + appender, HttpMethod.GET, null, String.class);
 		SearchInfo newSearch = new SearchInfo();
 		newSearch.setTime();
+		newSearch.setRequestType("Citizen");
 		sendToQueue(newSearch);
 		return citizenList;
 	}
@@ -42,6 +43,7 @@ public class SkyreCoreServiceImpl implements SkyreCoreService {
 				.exchange("http://localhost:8083/Finance/getFinance?" + appender, HttpMethod.GET, null, String.class);
 		SearchInfo newSearch = new SearchInfo();
 		newSearch.setTime();
+		newSearch.setRequestType("Finance");
 		sendToQueue(newSearch);
 		return financeList;
 	}
@@ -52,6 +54,7 @@ public class SkyreCoreServiceImpl implements SkyreCoreService {
 				HttpMethod.GET, null, String.class);
 		SearchInfo newSearch = new SearchInfo();
 		newSearch.setTime();
+		newSearch.setRequestType("Mobile");
 		sendToQueue(newSearch);
 		return mobileList;
 	}
@@ -62,6 +65,7 @@ public class SkyreCoreServiceImpl implements SkyreCoreService {
 				HttpMethod.GET, null, String.class);
 		SearchInfo newSearch = new SearchInfo();
 		newSearch.setTime();
+		newSearch.setRequestType("ANPR");
 		sendToQueue(newSearch);
 		return anprList;
 	}
@@ -72,6 +76,7 @@ public class SkyreCoreServiceImpl implements SkyreCoreService {
 				HttpMethod.GET, null, String.class);
 		SearchInfo newSearch = new SearchInfo();
 		newSearch.setTime();
+		newSearch.setRequestType("Associates");
 		sendToQueue(newSearch);
 		return associateList;
 	}
@@ -82,6 +87,7 @@ public class SkyreCoreServiceImpl implements SkyreCoreService {
 				HttpMethod.GET, null, String.class);
 		SearchInfo newSearch = new SearchInfo();
 		newSearch.setTime();
+		newSearch.setRequestType("VehicleLocation");
 		sendToQueue(newSearch);
 		return vehicleLocationList;
 	}
@@ -92,6 +98,7 @@ public class SkyreCoreServiceImpl implements SkyreCoreService {
 				HttpMethod.GET, null, String.class);
 		SearchInfo newSearch = new SearchInfo();
 		newSearch.setTime();
+		newSearch.setRequestType("Transactions");
 		sendToQueue(newSearch);
 		return transactionList;
 	}
@@ -102,6 +109,7 @@ public class SkyreCoreServiceImpl implements SkyreCoreService {
 				HttpMethod.GET, null, String.class);
 		SearchInfo newSearch = new SearchInfo();
 		newSearch.setTime();
+		newSearch.setRequestType("Citizen(Reg)");
 		sendToQueue(newSearch);
 		return citizenRegList;
 	}
