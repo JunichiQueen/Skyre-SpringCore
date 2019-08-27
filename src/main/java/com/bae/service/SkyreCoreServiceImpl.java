@@ -83,7 +83,7 @@ public class SkyreCoreServiceImpl implements SkyreCoreService {
 	
 	@Override
 	public ResponseEntity<String> getAssociates(String appender, String header) {
-		ResponseEntity<String> associateList = restTemplate.exchange("http://localhost:8084/Mobile/getAssociates?" + appender,
+		ResponseEntity<String> associateList = restTemplate.exchange(urlc.MOBILE_URL + "/Mobile/getAssociates?" + appender,
 				HttpMethod.GET, null, String.class);
 		SearchInfo newSearch = new SearchInfo();
 		newSearch.setTime();
@@ -95,7 +95,7 @@ public class SkyreCoreServiceImpl implements SkyreCoreService {
 	
 	@Override
 	public ResponseEntity<String> getVehicleLocation(String appender, String header) {
-		ResponseEntity<String> vehicleLocationList = restTemplate.exchange("http://localhost:8082/ANPR/getVehicleLocation?" + appender,
+		ResponseEntity<String> vehicleLocationList = restTemplate.exchange(urlc.VEHICLE_URL + "/ANPR/getVehicleLocation?" + appender,
 				HttpMethod.GET, null, String.class);
 		SearchInfo newSearch = new SearchInfo();
 		newSearch.setTime();
@@ -107,7 +107,7 @@ public class SkyreCoreServiceImpl implements SkyreCoreService {
 	
 	@Override
 	public ResponseEntity<String> getTransactions(String appender, String header) {
-		ResponseEntity<String> transactionList = restTemplate.exchange("http://localhost:8083/Finance/getTransactions?" + appender,
+		ResponseEntity<String> transactionList = restTemplate.exchange(urlc.FINANCE_URL + "/Finance/getTransactions?" + appender,
 				HttpMethod.GET, null, String.class);
 		SearchInfo newSearch = new SearchInfo();
 		newSearch.setTime();
@@ -119,7 +119,7 @@ public class SkyreCoreServiceImpl implements SkyreCoreService {
 
 	@Override
 	public ResponseEntity<String> getCitizenFromRegistrationNo(String appender, String header) {
-		ResponseEntity<String> citizenRegList = restTemplate.exchange("http://localhost:8082/ANPR/getCitizenFromRegistration?" + appender,
+		ResponseEntity<String> citizenRegList = restTemplate.exchange(urlc.VEHICLE_URL + "/ANPR/getCitizenFromRegistration?" + appender,
 				HttpMethod.GET, null, String.class);
 		SearchInfo newSearch = new SearchInfo();
 		newSearch.setTime();
