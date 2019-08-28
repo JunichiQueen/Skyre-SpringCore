@@ -7,6 +7,7 @@ import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import com.bae.entity.Cases;
 import com.bae.entity.SearchInfo;
 import com.bae.entity.SentInfo;
 import com.bae.util.URLC;
@@ -128,11 +129,30 @@ public class SkyreCoreServiceImpl implements SkyreCoreService {
 		sendToQueue(newSearch);
 		return citizenRegList;
 	}
+	
+	@Override
+	public ResponseEntity<String> getCases() {
+		ResponseEntity<String> casesList = restTemplate.exchange("http://localhost:8085/suspect/",
+				HttpMethod.GET, null, String.class);
+		return casesList;
+	}
+	
+	@Override
+	public ResponseEntity<String> postCases(Cases cases, String header) {
+		ResponseEntity<String> postReturn = restTemplate.postForEntity("http://localhost:8085/suspect/addSuspect", cases, String.class);
+		SearchInfo newSearch = new SearchInfo();
+		newSearch.setTime();
+		newSearch.setRequestType("Post Case");
+		newSearch.setUsername(header);
+		sendToQueue(newSearch);
+		return postReturn;
+	}
 
 	private void sendToQueue(SearchInfo searchinfo) {
 		SentInfo userToStore = new SentInfo(searchinfo);
 		System.out.println(searchinfo);
 		jmsTemplate.convertAndSend("AccountQueue", userToStore);
 	}
+
 
 }

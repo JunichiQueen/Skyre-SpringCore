@@ -7,6 +7,7 @@ import static org.mockito.Mockito.doThrow;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -19,6 +20,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.web.client.RestTemplate;
 
+import com.bae.entity.Cases;
 import com.bae.entity.Citizen;
 import com.bae.entity.SearchInfo;
 
@@ -124,6 +126,27 @@ public class SkyreCoreServiceImplTests {
 		.when(restTemplate).exchange("http://localhost:8082/ANPR/getCitizenFromRegistration?" + MOCK_APPENDER, HttpMethod.GET, null, String.class);
 		doThrow(NullPointerException.class).when(jmsTemplate).convertAndSend(MOCK_CITIZEN);
 		ResponseEntity<String> something = skyreCore.getCitizenFromRegistrationNo(MOCK_APPENDER, "");
+		assertEquals(response, something);
+	}
+	
+	@Test
+	public void getCasesTest() {
+		String casesList = "{ name: Steven, surname: Stevenson }";
+		ResponseEntity<String> response = new ResponseEntity<String>(casesList, HttpStatus.OK);
+		doReturn(response)
+		.when(restTemplate).exchange("http://localhost:8085/suspect/", HttpMethod.GET, null, String.class);
+		ResponseEntity<String> something = skyreCore.getCases();
+		assertEquals(response, something);
+	}
+	
+	@Test
+	public void postCasesTest() {
+		String casesList = "{ name: Steven, surname: Stevenson }";
+		Cases cases1 = new Cases();
+		ResponseEntity<String> response = new ResponseEntity<String>(casesList, HttpStatus.OK);
+		doReturn(response)
+		.when(restTemplate).postForEntity("http://localhost:8085/suspect/addSuspect", cases1, String.class);
+		ResponseEntity<String> something = skyreCore.postCases(cases1, "");
 		assertEquals(response, something);
 	}
 

@@ -4,10 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.bae.entity.Cases;
 import com.bae.service.SkyreCoreServiceImpl;
 
 @RestController
@@ -68,6 +71,17 @@ public class SkyreController {
 	public ResponseEntity<String> getCitizenFromRegistration(@PathVariable("appender") String appender,
 			@RequestHeader("username") String header) {
 		return skyreCoreService.getCitizenFromRegistrationNo(appender, header);
+	}
+	
+	@GetMapping("cases")
+	public ResponseEntity<String> getCases() {
+		return skyreCoreService.getCases();
+	}
+	
+	@PostMapping("postCase")
+	public ResponseEntity<String> postCase(@RequestBody Cases cases,
+			@RequestHeader("username") String header) {
+		return skyreCoreService.postCases(cases, header);
 	}
 
 }

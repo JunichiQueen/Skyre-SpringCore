@@ -12,6 +12,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
+import com.bae.entity.Cases;
 import com.bae.service.SkyreCoreServiceImpl;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -102,6 +103,27 @@ public class SkyreCoreControllerTests {
 		doReturn(response)
 		.when(skyreCoreServiceImpl).getCitizenFromRegistrationNo(MOCK_APPENDER, "");
 		ResponseEntity<String> something = skyreController.getCitizenFromRegistration(MOCK_APPENDER, "");
+		assertEquals(response, something);
+	}
+	
+	@Test
+	public void getCasesTest() {
+		String casesList = "{ name: Steven, surname: Stevenson }";
+		ResponseEntity<String> response = new ResponseEntity<String>(casesList, HttpStatus.OK);
+		doReturn(response)
+		.when(skyreCoreServiceImpl).getCases();
+		ResponseEntity<String> something = skyreController.getCases();
+		assertEquals(response, something);
+	}
+	
+	@Test
+	public void postCaseTest() {
+		String casesList = "{ name: Steven, surname: Stevenson }";
+		Cases cases1 = new Cases();
+		ResponseEntity<String> response = new ResponseEntity<String>(casesList, HttpStatus.OK);
+		doReturn(response)
+		.when(skyreCoreServiceImpl).postCases(cases1, "");
+		ResponseEntity<String> something = skyreController.postCase(cases1, "");
 		assertEquals(response, something);
 	}
 
