@@ -132,14 +132,14 @@ public class SkyreCoreServiceImpl implements SkyreCoreService {
 	
 	@Override
 	public ResponseEntity<String> getCases() {
-		ResponseEntity<String> casesList = restTemplate.exchange("http://localhost:8085/suspect/",
+		ResponseEntity<String> casesList = restTemplate.exchange(urlc.CASES_URL + "/suspect/",
 				HttpMethod.GET, null, String.class);
 		return casesList;
 	}
 	
 	@Override
 	public ResponseEntity<String> postCases(Cases cases, String header) {
-		ResponseEntity<String> postReturn = restTemplate.postForEntity("http://localhost:8085/suspect/addSuspect", cases, String.class);
+		ResponseEntity<String> postReturn = restTemplate.postForEntity(urlc.CASES_URL + "/suspect/addSuspect", cases, String.class);
 		SearchInfo newSearch = new SearchInfo();
 		newSearch.setTime();
 		newSearch.setRequestType("Post Case");
