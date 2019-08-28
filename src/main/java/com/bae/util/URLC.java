@@ -15,10 +15,10 @@ public class URLC {
 //		public static final String VEHICLE_URL = "anpr";
 		
 //		kubes
-		public static final String CITIZEN_URL = "http://skyre-core:8081";
-		public static final String FINANCE_URL = "http://skyre-core:8083";
-		public static final String MOBILE_URL = "http://skyre-core:8084";
-		public static final String VEHICLE_URL = "http://skyre-core:8082";
+		public static final String CITIZEN_URL = "http://core:8081";
+		public static final String FINANCE_URL = "http://core:8083";
+		public static final String MOBILE_URL = "http://core:8084";
+		public static final String VEHICLE_URL = "http://core:8082";
 
 	}
 
