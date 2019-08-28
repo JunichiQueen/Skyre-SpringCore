@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: skyre-core
+  labels:
+    app: skyre-core
+spec:
+  selector:
+    matchLabels:
+      app: skyre-core
+  template:
+    metadata:
+      labels:
+        app: skyre-core
+    spec:
+      containers:
+      - name: skyre-core
+        image: eyjafjalla/skyre-core:latest
+        ports: 9001
