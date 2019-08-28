@@ -28,7 +28,7 @@ public class Cases {
 	
 	private String registrationId;
 	
-	private String driverlicenceId;
+	private String driverLicenceId;
 	
 	private String vehicleRegistrationNo;
 	
@@ -42,7 +42,7 @@ public class Cases {
 	
 	public Cases(String citizenId, String forenames, String surname, String homeAddress, String dateOfBirth,
 			String placeOfBirth, String sex, String bankAccountId, String accountNumber, String bank,
-			String phoneNumber, String network, String registrationId, String driverlicenceId,
+			String phoneNumber, String network, String registrationId, String driverLicenceId,
 			String vehicleRegistrationNo, String registrationDate, String make, String model, String colour) {
 		super();
 		this.citizenId = citizenId;
@@ -58,7 +58,7 @@ public class Cases {
 		this.phoneNumber = phoneNumber;
 		this.network = network;
 		this.registrationId = registrationId;
-		this.driverlicenceId = driverlicenceId;
+		this.driverLicenceId = driverLicenceId;
 		this.vehicleRegistrationNo = vehicleRegistrationNo;
 		this.registrationDate = registrationDate;
 		this.make = make;
@@ -174,12 +174,12 @@ public class Cases {
 		this.registrationId = registrationId;
 	}
 
-	public String getDriverlicenceId() {
-		return driverlicenceId;
+	public String getDriverLicenceId() {
+		return driverLicenceId;
 	}
 
-	public void setDriverlicenceId(String driverlicenceId) {
-		this.driverlicenceId = driverlicenceId;
+	public void setDriverLicenceId(String driverLicenceId) {
+		this.driverLicenceId = driverLicenceId;
 	}
 
 	public String getVehicleRegistrationNo() {
@@ -228,7 +228,7 @@ public class Cases {
 				+ homeAddress + ", dateOfBirth=" + dateOfBirth + ", placeOfBirth=" + placeOfBirth + ", sex=" + sex
 				+ ", bankAccountId=" + bankAccountId + ", accountNumber=" + accountNumber + ", bank=" + bank
 				+ ", phoneNumber=" + phoneNumber + ", network=" + network + ", registrationId=" + registrationId
-				+ ", driverlicenceId=" + driverlicenceId + ", vehicleRegistrationNo=" + vehicleRegistrationNo
+				+ ", driverlicenceId=" + driverLicenceId + ", vehicleRegistrationNo=" + vehicleRegistrationNo
 				+ ", registrationDate=" + registrationDate + ", make=" + make + ", model=" + model + ", colour="
 				+ colour + "]";
 	}
