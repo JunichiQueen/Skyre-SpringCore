@@ -9,10 +9,10 @@ public class URLC {
 //		public static final String VEHICLE_URL = "http://localhost:8082";
 		
 //		swarm
-		public static final String CITIZEN_URL = "/citizen";
-		public static final String FINANCE_URL = "/finance";
-		public static final String MOBILE_URL = "/mobile";
-		public static final String VEHICLE_URL = "/anpr";
+		public static final String CITIZEN_URL = "http://citizen";
+		public static final String FINANCE_URL = "http://finance";
+		public static final String MOBILE_URL = "http://mobile";
+		public static final String VEHICLE_URL = "http://anpr";
 		
 //		kubes
 //		public static final String CITIZEN_URL = "";
